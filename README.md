@@ -1,39 +1,45 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+# A horizontal & vertical tab widget for flutter
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+A simple example of usage. To see all settings please visit API reference of this package
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+### HorizontalTabView
 
 ```dart
-const like = 'sample';
+HorizontalTabView(
+    initialIndex: 0,
+    contentScrollAxis: Axis.horizontal,
+    backgroundColor: Colors.grey.shade100,
+    tabs: List.generate(10, (idx) => Tab(text: "Flutter")),
+    contents:
+        List.generate(items.length, (idx) => 
+            Container(child: Text('Flutter'), padding: EdgeInsets.all(20))
+        )
+    ),
+);
 ```
 
-## Additional information
+### VerticalTabView
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+...
+
+VerticalTabView(
+  tabsWidth: 150,
+  tabs: <Tab>[
+    Tab(child: Text('Flutter'), icon: Icon(Icons.phone)),
+    Tab(child: Text('Dart')),
+    Tab(child: Text('NodeJS')),
+    Tab(child: Text('PHP')),
+    Tab(child: Text('HTML 5')),
+  ],
+  contents: <Widget>[
+    Container(child: Text('Flutter'), padding: EdgeInsets.all(20)),
+    Container(child: Text('Dart'), padding: EdgeInsets.all(20)),
+    Container(child: Text('NodeJS'), padding: EdgeInsets.all(20)),
+    Container(child: Text('PHP'), padding: EdgeInsets.all(20)),
+    Container(child: Text('HTML 5'), padding: EdgeInsets.all(20))
+  ],
+),
+```
